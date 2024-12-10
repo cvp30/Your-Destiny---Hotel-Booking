@@ -19,7 +19,6 @@ import Admin from "../Admin";
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 const EditRoom = () => {
   // const location = useLocation();
-  // console.log(location.pathname);
   const { id } = useParams();
   const dispatch = useDispatch();
   const roomDetail = useSelector((state) => state.roomDetail);

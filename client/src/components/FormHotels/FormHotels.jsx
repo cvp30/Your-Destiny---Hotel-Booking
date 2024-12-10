@@ -18,7 +18,7 @@ const FormHotels = () => {
   const servicies = ["parking", "restaurant", "publicPool", "bar", "wifi"];
 
   // -------- Estados locales de Category --------------
-  const [category, setCategory ] = useState(null);
+  const [category, setCategory] = useState(null);
   const [hover, setHover] = useState(null);
 
   // ------ EStados de las position --------
@@ -35,7 +35,7 @@ const FormHotels = () => {
   // ----------- Errors ------------
   const [inputErrors, setInputErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-    
+
   // ------- Estado del Input ---------
   const [input, setInput] = useState({
     name: "",
@@ -66,7 +66,6 @@ const FormHotels = () => {
   };
 
   const handleChecked = (event) => {
-    // console.log(event.target);
     // if(event.target.checked === true){
     //   setInput({
     //     ...input,
@@ -124,7 +123,7 @@ const FormHotels = () => {
   const handleChangePosition = () => {
     setInput({
       ...input,
-      position: [input.position[0]= pos.latitud, input.position[1]=pos.longitud],
+      position: [input.position[0] = pos.latitud, input.position[1] = pos.longitud],
     })
   };
 
@@ -135,18 +134,18 @@ const FormHotels = () => {
 
   const handlePlus = (event) => {
     event.preventDefault();
-    if (!/.*(png|jpg|jpeg|gif)$/.test(imgExt)){
+    if (!/.*(png|jpg|jpeg|gif)$/.test(imgExt)) {
       setImgExtErr("Enter a URL image .png, .jpg, .jpeg, .gif")
     }
     else {
       setImgExt("");
-        if(!input.pictureDetail.includes(imgExt)){
-          setInput({
-            ...input,
-            pictureDetail: [...input.pictureDetail, imgExt]
-          })
-          setImgExt("");
-        }
+      if (!input.pictureDetail.includes(imgExt)) {
+        setInput({
+          ...input,
+          pictureDetail: [...input.pictureDetail, imgExt]
+        })
+        setImgExt("");
+      }
     }
   };
 
@@ -168,14 +167,13 @@ const FormHotels = () => {
 
   // ------------ UseEffect para crear -------------
   useEffect(() => {
-    if(Object.keys(inputErrors).length === 0 && isSubmit) {
-      console.log(input);
+    if (Object.keys(inputErrors).length === 0 && isSubmit) {
       dispatch(createHotel(input));
       Swal.fire("Hotel was Created succesfully");
     }
   }, [inputErrors]);
 
-  return(
+  return (
     <div className="formHotelsBody">
       <NavBarDetails />
       <div className={style.container}>
@@ -189,8 +187,8 @@ const FormHotels = () => {
               <div>
                 <div className={style.containerInput}>
                   <label>Hotel Name: </label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="name"
                     placeholder="Hotel Name"
                     value={input.name}
@@ -203,8 +201,8 @@ const FormHotels = () => {
 
                 <div className={style.containerInput}>
                   <label>Number of rooms: </label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     name="rooms"
                     placeholder="Number of rooms"
                     value={input.rooms}
@@ -219,8 +217,8 @@ const FormHotels = () => {
               <div>
                 <div className={style.containerInput}>
                   <label>Location: </label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="location"
                     value={input.location}
                     onChange={(e) => handleChange(e)}
@@ -232,8 +230,8 @@ const FormHotels = () => {
 
                 <div className={style.containerInput}>
                   <label>Phone: </label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="phone"
                     value={input.phone}
                     onChange={(e) => handleChange(e)}
@@ -247,21 +245,21 @@ const FormHotels = () => {
 
             <div className={style.containerDescription}>
               <label>Description: </label>
-              <textarea 
+              <textarea
                 type="text"
                 name="description"
                 value={input.description}
                 onChange={(e) => handleChange(e)}
               />
               <div>
-                    <span className={style.span}>{inputErrors.description}</span>
-                  </div>
+                <span className={style.span}>{inputErrors.description}</span>
+              </div>
             </div>
 
             <div className={style.containerPictureHome}>
               <label>Picture Home: </label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 name="pictureHome"
                 value={input.pictureHome}
                 onChange={(e) => handleChange(e)}
@@ -274,7 +272,7 @@ const FormHotels = () => {
             <div className={style.containerPictureHome}>
               <div>
                 <label>Extra Pictures: </label>
-                <input 
+                <input
                   type="text"
                   value={imgExt}
                   onChange={(e) => handleImgExt(e)}
@@ -282,7 +280,7 @@ const FormHotels = () => {
               </div>
               <div className={style.button}>
                 {
-                  input.pictureDetail?.length < 4 ? <button onClick={ (e) => handlePlus(e) } name="imgExt">+</button> : <p></p>
+                  input.pictureDetail?.length < 4 ? <button onClick={(e) => handlePlus(e)} name="imgExt">+</button> : <p></p>
                 }
               </div>
             </div>
@@ -296,8 +294,8 @@ const FormHotels = () => {
                     return (
                       <div key={index}>
                         <label>{servicios}</label>
-                        <input 
-                          type="checkbox" 
+                        <input
+                          type="checkbox"
                           name={servicies}
                           value={input.servicies}
                           id={`switch${index}`}
@@ -329,7 +327,7 @@ const FormHotels = () => {
                           onChange={(e) => handleChangeCategory(e)}
                           className={style.inputRadio}
                         />
-                        <FaStar 
+                        <FaStar
                           className={style.star}
                           size={25}
                           onMouseEnter={() => setHover(categoryValue)}
@@ -342,29 +340,29 @@ const FormHotels = () => {
                 }
               </div>
             </div>
-            
-            
+
+
             <div className={style.containerLanguages}>
               <label>Languages: </label>
               <div>
                 {
                   input.languages.length < 5 ? <select name="languages" value={input.languages} onChange={(e) => handleSelected(e)}>
-                  <option value="title" disabled name=""></option>
-                  {
-                    languages.map((language, index) => {
-                      return <option name={language} key={index}>{language}</option>;
-                    })
-                  }
-                </select> : <p></p>
+                    <option value="title" disabled name=""></option>
+                    {
+                      languages.map((language, index) => {
+                        return <option name={language} key={index}>{language}</option>;
+                      })
+                    }
+                  </select> : <p></p>
                 }
-                
+
               </div>
 
               <div className={style.containerPosition}>
                 <label>Position:</label>
                 <div>
                   <div className={style.containerInput}>
-                    <input 
+                    <input
                       type="text"
                       name="latitud"
                       value={pos.latitud}
@@ -375,7 +373,7 @@ const FormHotels = () => {
                     </div>
                   </div>
                   <div className={style.containerInput}>
-                    <input 
+                    <input
                       type="text"
                       name="longitud"
                       value={pos.longitud}
@@ -387,11 +385,11 @@ const FormHotels = () => {
                   </div>
                 </div>
               </div>
-                <div>
-                  <button onClick={handleChangePosition} name="position">Add Position</button>
-                </div>
+              <div>
+                <button onClick={handleChangePosition} name="position">Add Position</button>
+              </div>
             </div>
-            
+
             <div>
               <button className={style.buttonSubmit} type="submit" onClick={(e) => handleSubmit(e)}>Add Hotel</button>
             </div>
@@ -402,20 +400,20 @@ const FormHotels = () => {
           <p className="fw-bold text-center display-1">
             Picture <span className="text-danger">Home</span>
           </p>
-          <img src={input.pictureHome ? input.pictureHome : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"}/>
+          <img src={input.pictureHome ? input.pictureHome : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"} />
 
           <div>
             {
-              input.pictureDetail?.map((img, index)=> {
-                  return(
-                    <div key={index}>
-                      <img src={img} key={index}/>
-                      {
-                        <button onClick={(event) => handleDeleteImg(event)} name={img}>X</button>
-                      }
-                      
-                    </div>
-                  )
+              input.pictureDetail?.map((img, index) => {
+                return (
+                  <div key={index}>
+                    <img src={img} key={index} />
+                    {
+                      <button onClick={(event) => handleDeleteImg(event)} name={img}>X</button>
+                    }
+
+                  </div>
+                )
               })
             }
           </div>
@@ -444,7 +442,7 @@ const FormHotels = () => {
       </div>
       <Footer />
     </div>
-    )
+  )
 };
 
 export default FormHotels;

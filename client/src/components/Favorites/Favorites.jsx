@@ -142,7 +142,6 @@ export default Favorites;
 //   useEffect(() => {
 //     dispatch(getAllHotels());
 //     dispatch(getFavoriteHotels(user[0].email));
-//     console.log(favs.length);
 //   }, [dispatch, favs.length]);
 
 //   if (hotels.length === 0||error||!user[0]) {

@@ -4,7 +4,10 @@ import App from './App'
 import './index.css'
 import axios from 'axios'
 
-axios.defaults.baseURL = "https://api-hotel-booking.onrender.com/";
+const { VITE_BASE_URL } = import.meta.env
+
+axios.defaults.baseURL = VITE_BASE_URL;
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />

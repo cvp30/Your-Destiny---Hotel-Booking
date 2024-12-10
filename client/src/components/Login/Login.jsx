@@ -4,7 +4,7 @@ import style from "./Login.module.css";
 import destiny from "../../assets/img/destiny.png";
 import { useLocation } from "react-router-dom";
 import SignUp from "./SignUp/SignUp";
-import { signInWithGoogle, signedWithFacebook } from "../../fireBase/Firebase";
+import { signInWithGoogle } from "../../fireBase/Firebase";
 import { logOut } from "../../redux/actions";
 import logo from "../../assets/img/zyro-image.png";
 const Login = () => {

@@ -61,7 +61,7 @@ const FormRooms = () => {
   const [isSubmit, setIsSubmit] = useState(false);
 
 
-// ----------- Funciones on Change -------------
+  // ----------- Funciones on Change -------------
   const handleChange = (event) => {
     event.preventDefault()
     setInput({
@@ -71,14 +71,13 @@ const FormRooms = () => {
   };
 
   const handleChecked = (event) => {
-    // console.log(event.target);
-    if(event.target.checked === true){
+    if (event.target.checked === true) {
       setInput({
         ...input,
         specialties: [...input.specialties, event.target.value]
       })
     };
-    if(event.target.checked === false) {
+    if (event.target.checked === false) {
       setInput({
         ...input,
         specialties: [...input.specialties.filter(specialties => specialties !== event.target.value)]
@@ -93,18 +92,18 @@ const FormRooms = () => {
 
   const handlePlus = (event) => {
     event.preventDefault();
-    if (!/.*(png|jpg|jpeg|gif)$/.test(imgExt)){
+    if (!/.*(png|jpg|jpeg|gif)$/.test(imgExt)) {
       setImgExtErr("Enter a URL image .png, .jpg, .jpeg, .gif")
     }
     else {
       setImgExt("");
-        if(!input.pictureDetail.includes(imgExt)){
-          setInput({
-            ...input,
-            pictureDetail: [...input.pictureDetail, imgExt]
-          })
-          setImgExt("");
-        }
+      if (!input.pictureDetail.includes(imgExt)) {
+        setInput({
+          ...input,
+          pictureDetail: [...input.pictureDetail, imgExt]
+        })
+        setImgExt("");
+      }
     }
   };
 
@@ -126,15 +125,14 @@ const FormRooms = () => {
   };
 
 
-// ------------ UseEffect para crear -------------
+  // ------------ UseEffect para crear -------------
   useEffect(() => {
-    if(Object.keys(inputErrors).length === 0 && isSubmit) {
-      console.log(input);
+    if (Object.keys(inputErrors).length === 0 && isSubmit) {
       dispatch(createRoom(input))
       alert("Room Created succesfully");
     }
   }, [inputErrors]);
-  
+
 
   // ----------- Comienzo del componente --------------
   return (
@@ -153,25 +151,25 @@ const FormRooms = () => {
               <div>
                 <div className={style.containerInput}>
                   <label>Name Room: </label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="numRoom"
                     placeholder="Name Room"
                     value={input.name}
-                    onChange= {(e) => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                   />
                   <div>
-                    <span className={style.span}>{inputErrors.numRoom}</span> 
+                    <span className={style.span}>{inputErrors.numRoom}</span>
                   </div>
                 </div>
 
                 <div className={style.containerInput}>
                   <label>Max of Adult: </label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     name="maxAdult"
                     value={input.maxAdult}
-                    onChange= {(e) => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                   />
                   <div>
                     <span className={style.span}>{inputErrors.maxAdult}</span>
@@ -182,11 +180,11 @@ const FormRooms = () => {
               <div>
                 <div className={style.containerInput}>
                   <label>Number of Peoples: </label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     name="numPeople"
                     value={input.numPeople}
-                    onChange= {(e) => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                   />
                   <div>
                     <span className={style.span}>{inputErrors.numPeople}</span>
@@ -195,11 +193,11 @@ const FormRooms = () => {
 
                 <div className={style.containerInput}>
                   <label>Max of Child: </label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     name="maxChild"
                     value={input.maxChild}
-                    onChange= {(e) => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                   />
                   <div>
                     <span className={style.span}>{inputErrors.maxChild}</span>
@@ -208,14 +206,14 @@ const FormRooms = () => {
               </div>
 
             </div>
-            
+
             <div className={style.containerDescription}>
               <label>Description: </label>
-              <textarea 
+              <textarea
                 type="text"
                 name="description"
                 value={input.description}
-                onChange= {(e) => handleChange(e)}
+                onChange={(e) => handleChange(e)}
               />
               <div>
                 <span className={style.span}>{inputErrors.description}</span>
@@ -223,28 +221,28 @@ const FormRooms = () => {
             </div>
 
             <div className={style.containerPictureHome}>
-                <label>Picture Home: </label>
-                <input 
-                  type="text" 
-                  name="pictureHome"
-                  value={input.pictureHome}
-                  onChange= {(e) => handleChange(e)}
-                />
-                <div>
-                  <span className={style.span}>{inputErrors.pictureHome}</span>
-                </div>
+              <label>Picture Home: </label>
+              <input
+                type="text"
+                name="pictureHome"
+                value={input.pictureHome}
+                onChange={(e) => handleChange(e)}
+              />
+              <div>
+                <span className={style.span}>{inputErrors.pictureHome}</span>
+              </div>
             </div>
 
             <div className={style.containerPictureHome}>
               <label>Extra Pictures: </label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={imgExt}
                 onChange={(e) => handleImgExt(e)}
               />
               <div className={style.button}>
                 {
-                  input.pictureDetail?.length < 4 ? <button onClick={ (e) => handlePlus(e) } name="imgExt">+</button> : <p></p>
+                  input.pictureDetail?.length < 4 ? <button onClick={(e) => handlePlus(e)} name="imgExt">+</button> : <p></p>
                 }
               </div>
             </div>
@@ -257,8 +255,8 @@ const FormRooms = () => {
                     return (
                       <div key={index}>
                         <label>{specialties}</label>
-                        <input 
-                          type="checkbox" 
+                        <input
+                          type="checkbox"
                           name="specialties"
                           value={specialties}
                           id={`switch${index}`}
@@ -276,11 +274,11 @@ const FormRooms = () => {
             <div className={style.containerValue}>
               <label>Value: </label>
               <div>
-                <input 
-                  type="number" 
+                <input
+                  type="number"
                   name="value"
                   value={input.value}
-                  onChange= {(e) => handleChange(e)}
+                  onChange={(e) => handleChange(e)}
                 />
                 <div>
                   <span className={style.span}>{inputErrors.value}</span>
@@ -298,20 +296,20 @@ const FormRooms = () => {
           <p className="fw-bold text-center display-1">
             Picture <span className="text-danger">Home</span>
           </p>
-          <img src={input.pictureHome ? input.pictureHome : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"}/>
+          <img src={input.pictureHome ? input.pictureHome : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"} />
 
           <div>
             {
-              input.pictureDetail?.map((img, index)=> {
-                  return(
-                    <div key={index}>
-                      <img src={img} key={index}/>
-                      {
-                        <button onClick={(event) => handleDeleteImg(event)} name={img}>X</button>
-                      }
-                      
-                    </div>
-                  )
+              input.pictureDetail?.map((img, index) => {
+                return (
+                  <div key={index}>
+                    <img src={img} key={index} />
+                    {
+                      <button onClick={(event) => handleDeleteImg(event)} name={img}>X</button>
+                    }
+
+                  </div>
+                )
               })
             }
           </div>

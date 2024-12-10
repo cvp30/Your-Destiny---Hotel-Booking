@@ -1,27 +1,35 @@
 import { initializeApp } from "firebase/app";
+import { findOrCreate } from "../redux/actions";
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  FacebookAuthProvider,
 } from "firebase/auth";
-import { findOrCreate } from "../redux/actions";
+
+const {
+  VITE_API_KEY,
+  VITE_AUTH_DOMAIN,
+  VITE_PROJECT_ID,
+  VITE_STORAGE_BUCKET,
+  VITE_MESSAGING_SENDER_ID,
+  VITE_APP_ID,
+  VITE_MEASUREMENT_ID
+} = import.meta.env
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDImDA2Ya23IN-8cJ3qZZyNTqDaUTepRyQ",
-  authDomain: "hotelbooking-81504.firebaseapp.com",
-  projectId: "hotelbooking-81504",
-  storageBucket: "hotelbooking-81504.firebasestorage.app",
-  messagingSenderId: "438505637549",
-  appId: "1:438505637549:web:574654c9c3fffb87ede824",
-  measurementId: "G-9W4VT7HEDG"
+  apiKey: VITE_API_KEY,
+  authDomain: VITE_AUTH_DOMAIN,
+  projectId: VITE_PROJECT_ID,
+  storageBucket: VITE_STORAGE_BUCKET,
+  messagingSenderId: VITE_MESSAGING_SENDER_ID,
+  appId: VITE_APP_ID,
+  measurementId: VITE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
-const providerFacebook = new FacebookAuthProvider();
 
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)
@@ -32,16 +40,6 @@ export const signInWithGoogle = () => {
         img: result.user.photoURL,
       };
       findOrCreate(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-export const signedWithFacebook = () => {
-  signInWithPopup(auth, providerFacebook)
-    .then((result) => {
-      console.log(result);
     })
     .catch((error) => {
       console.log(error);

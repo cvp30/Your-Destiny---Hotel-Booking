@@ -64,7 +64,6 @@ const EditHotel = () => {
     dispatch(getHotelById(id));
   }, []);
   const handleChangeCategory = (event) => {
-    console.log(event.target);
     event.preventDefault();
     setInputs({
       ...inputs,
@@ -284,7 +283,6 @@ const EditHotel = () => {
                       {hotel.position?.map((hotelPosition) => {
                         array.push(parseFloat(hotelPosition));
                       })}
-                      {/* { console.log(array)} */}
                       {array.length === 2 ? (
                         <Maps positionDetail={array} />
                       ) : (

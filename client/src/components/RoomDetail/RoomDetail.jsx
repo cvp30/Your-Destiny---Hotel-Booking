@@ -22,13 +22,11 @@ import Footer from "../Footer/Footer";
 
 const RoomDetail = () => {
   // const location = useLocation();
-  // console.log(location.pathname);
   const { id } = useParams();
   const dispatch = useDispatch();
   const reservation = useSelector((state) => state.reservation);
   const roomDetail = useSelector((state) => state.roomDetail);
   const hotelDetail = useSelector((state) => state.hotelDetail);
-  // console.log(roomDetail);
 
   useEffect(() => {
     // dispatch(cleanRoom())
@@ -107,25 +105,25 @@ const RoomDetail = () => {
                   })}
                 </ul>
               </div>
-              <div className={`${style.containerCondSpec} containerCondSpec` }>
+              <div className={`${style.containerCondSpec} containerCondSpec`}>
                 <h2>Room conditions</h2>
                 <ul className={style.ulCondiciones}>
-                
+
                   <li>
                     <span className={style.iconChildren}></span>
-                    <p className={`${style.paddingMax} paddingMax` }>
+                    <p className={`${style.paddingMax} paddingMax`}>
                       {roomDetail.maxChild} Max Children
                     </p>
                   </li>
                   <li>
                     <span className={style.iconAdults}></span>
-                    <p className={`${style.paddingMax} paddingMax` }>
+                    <p className={`${style.paddingMax} paddingMax`}>
                       {roomDetail.maxAdult} Max Adults
                     </p>
                   </li>
                   <li>
                     <span className={style.iconPeople}></span>
-                    <p className={`${style.paddingMax} paddingMax` }>
+                    <p className={`${style.paddingMax} paddingMax`}>
                       {roomDetail.numPeople} Max People
                     </p>
                   </li>

@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const Users = (props) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
-  console.log(users)
+
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
@@ -29,19 +29,19 @@ const Users = (props) => {
               <th>Phone</th>
             </tr>
           </thead>
-            <tbody>
-              {users.map((user) => {
-                return (
-                  <tr className={style.trBody} key={user.email}>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.admin === true ? "Admin" : "User"}</td>
-                    <td>{user.address}</td>
-                    <td>{user.phone}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
+          <tbody>
+            {users.map((user) => {
+              return (
+                <tr className={style.trBody} key={user.email}>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.admin === true ? "Admin" : "User"}</td>
+                  <td>{user.address}</td>
+                  <td>{user.phone}</td>
+                </tr>
+              );
+            })}
+          </tbody>
 
         </table>
       </div>
