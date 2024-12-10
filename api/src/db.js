@@ -3,7 +3,7 @@ const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
-// const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY } = process.env;
+const { DB_DEPLOY } = process.env;
 
 // const sequelize = new Sequelize(
 //   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/hotel`,
@@ -13,13 +13,7 @@ const path = require("path");
 //   }
 // );
 
-// const sequelize = new Sequelize(DB_DEPLOY, {
-//   logging: false,
-//   native: false,
-// });
-const local = "postgres://postgres:password@localhost:5432/booking";
-const supabase = "postgresql://postgres.bzzcjbjgxaojvxlybgyp:cvp30databaseprojects@aws-0-us-west-1.pooler.supabase.com:6543/postgres";
-const sequelize = new Sequelize(supabase, {
+const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false,
   native: false,
 })
