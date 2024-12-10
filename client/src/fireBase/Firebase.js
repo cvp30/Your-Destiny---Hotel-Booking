@@ -8,12 +8,13 @@ import {
 import { findOrCreate } from "../redux/actions";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD99zmcRfAs8JCxx3j1EVeFGcuF_9lXhN4",
-  authDomain: "yourdestiny-27b28.firebaseapp.com",
-  projectId: "yourdestiny-27b28",
-  storageBucket: "yourdestiny-27b28.appspot.com",
-  messagingSenderId: "814044564457",
-  appId: "1:814044564457:web:7c7fb764efd58d5afe5978",
+  apiKey: "AIzaSyDImDA2Ya23IN-8cJ3qZZyNTqDaUTepRyQ",
+  authDomain: "hotelbooking-81504.firebaseapp.com",
+  projectId: "hotelbooking-81504",
+  storageBucket: "hotelbooking-81504.firebasestorage.app",
+  messagingSenderId: "438505637549",
+  appId: "1:438505637549:web:574654c9c3fffb87ede824",
+  measurementId: "G-9W4VT7HEDG"
 };
 
 const app = initializeApp(firebaseConfig);
