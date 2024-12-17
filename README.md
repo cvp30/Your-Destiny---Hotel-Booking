@@ -1,33 +1,41 @@
 
-# Final Project – Henry,  Your Destiny
+# 🏨 Hotel Booking App
 
-<p align="right">
-  <img height="150" src="client\src\assets\img\logo.jpg" />
-</p>
+Bienvenido a la **Hotel Booking App**, una solución completa para gestionar reservas de hoteles. Esta aplicación está construida utilizando **React** para el frontend y **Node.js** con **Express** para el backend. Utilizamos **PostgreSQL** como base de datos y **Sequelize** como ORM.
 
-## Objetivos del Proyecto
+## ✨ Características
 
-- Aplicar los conocimientos adquiridos durante el proceso del bootcamp, utilizando las herramientas aprendidas como lo es JavaScript, HTML, CSS, Node, React, Redux, SQL
-- Ejercer el uso de Git Flow
+- **Autenticación de Usuarios**: Registro e inicio de sesión de usuarios.
+- **Búsqueda de Hoteles**: Filtra y encuentra hoteles fácilmente.
+- **Detalle de Hoteles**: Información detallada de cada hotel.
+- **Reservas**: Realiza y gestiona reservas.
+- **Reseñas**: Publica y lee reseñas de otros usuarios.
+- **Favoritos**: Guarda hoteles en tu lista de favoritos.
+- **Pago**: Integración con **MercadoPago** para pagos seguros.
 
-## Beneficios del software
-- Al contar con este software, tendríamos  beneficios como:
-  
-  - Las reservas de los hoteles serian automatizadas, todo esto como beneficio para el cliente, ya que tiene la posibilidad de contar con un método de pago más ágil y eficiente, donde su tiempo de espera es  mínimo en el momento de realizar la reservación.
-
-  - Contará con perfil administrador, donde tiene funciones únicas el cual permiten realizar: creación, modificación o eliminación sobre el sitio web, a información como lo es: 
-
-    - Ofertas de descuentos
-    - Hoteles
-    - Anuncios 
-    - Habitaciones 
+![hotel booking](hotelBooking.avif)
 
 
+## 🚀 Tecnologías Utilizadas
+### Backend 
+- **Node.js** y **Express**: Para crear la API del servidor.
+- **PostgreSQL**: Base de datos relacional.
+- **Sequelize**: ORM para manejar la base de datos.
+- **Axios**: Para realizar solicitudes HTTP.
+- **MercadoPago**: Integración para el procesamiento de pagos.
 
-- El cliente tendrá la opción de calificar su experiencia adquirida en el hotel, dónde ésta será pública para la ayuda de una decisión más acertada sobre la elección de su destino a otros usuarios.
-- El usuario podrá editar, eliminar comentarios realizados sobre el hotel
--	Contará con una búsqueda por calificación dónde pueden encontrar su hotel de preferencia, y la opción de agregarlo como favorito, este se verá reflejado en la sección de destacados.
-- El cliente contará con una sección dónde se reflejan las reservas realizadas por el usuario
--	Como método de comprobación sobre la realización de la reserva, el cliente recibirá una notificación al correo electrónico.
--	La información de los usuarios que realizan una reservación será almacenada en la base de datos
--	La información sobre los hoteles está almacenada en la base de datos
+### Frontend
+- **React**: Biblioteca de JavaScript para construir la interfaz de usuario.
+- **React Router**: Manejo de rutas en la aplicación.
+- **Redux**: Manejo del estado de la aplicación.
+- **Bootstrap** y **React-Bootstrap**: Framework CSS para estilos responsivos.
+- **SweetAlert2**: Para alertas y modales.
+- **Leaflet** y **React-Leaflet**: Para integrar mapas interactivos.
+- **Firebase**: Autenticación de usuarios.
+
+## 🛠️ Instalación
+
+### Requisitos Previos
+- Node.js >= 12.18.3
+- npm >= 6.14.6
+- PostgreSQL
